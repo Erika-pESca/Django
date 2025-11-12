@@ -1,1 +1,1 @@
-# MindConnectAI
+DJANGO
