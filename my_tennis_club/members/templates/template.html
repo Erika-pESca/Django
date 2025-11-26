@@ -1,0 +1,131 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tennis Club - Query Sets</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'myfirst.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="main-title">Query Sets</h1>
+      <div class="image-container">
+        <img src="{% static 'members/django-framework.png' %}" alt="Django" class="django-logo">
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="query-section">
+        <h2 class="section-title">Devuelve columnas específicas por nombre</h2>
+        <ul class="result-list">
+          {% for x in column_firstnames %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtrada todos los registros con el nombre andres</h2>
+        <ul class="result-list">
+          {% for x in records_firtname %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtrada todos los registros con el nombre andres o Andres</h2>
+        <ul class="result-list">
+          {% for x in records_OR_andres %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtrada todos los registros que empiezan con la letra a</h2>
+        <ul class="result-list">
+          {% for x in startwith_a %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtrada todos los registros que terminan con la letra s</h2>
+        <ul class="result-list">
+          {% for x in iendswith_s %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtrada todos los registros que contienen la letra e</h2>
+        <ul class="result-list">
+          {% for x in contains_e %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtrada todos los registros que están en el rango de id 2 a 5</h2>
+        <ul class="result-list">
+          {% for x in range_id %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtra todos los registros que están en un rango entre las letras a y m</h2>
+        <ul class="result-list">
+          {% for x in range_letras %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Filtra todos los registros cuyo id es mayor a 3</h2>
+        <ul class="result-list">
+          {% for x in filter_id_gt %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Ordena todos los registros por firstname en orden ascendente</h2>
+        <ul class="result-list">
+          {% for x in orderby_firstname %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section">
+        <h2 class="section-title">Ordena todos los registros por lastname en orden descendente</h2>
+        <ul class="result-list">
+          {% for x in orderby_lastname_desc %}
+            <li>{{ x }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="query-section fruits-section">
+        <h2 class="section-title">Fruits</h2>
+        <div class="fruits-container">
+          {% for x in fruits %}
+            <h3 class="fruit-item">{{ x }}</h3>
+          {% endfor %}
+        </div>
+        <p class="info-text">In views.py you can see what the fruits variable looks like.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
