@@ -1,0 +1,59 @@
+{% extends "master.html" %}
+{% block title %}Detalle del Aprendiz{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1>Detalle del Aprendiz</h1>
+    
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">{{ aprendiz.nombre_completo }}</h5>
+            <table class="table table-bordered mt-3">
+                <tbody>
+                    <tr>
+                        <th scope="row" style="width: 30%;">Documento de Identidad</th>
+                        <td>{{ aprendiz.documento_identidad }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre</th>
+                        <td>{{ aprendiz.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Apellido</th>
+                        <td>{{ aprendiz.apellido }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Correo Electrónico</th>
+                        <td>{{ aprendiz.correo_electronico }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Teléfono</th>
+                        <td>{{ aprendiz.telefono }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Programa de Formación</th>
+                        <td>{{ aprendiz.programa_formacion }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fecha de Nacimiento</th>
+                        <td>{{ aprendiz.fecha_nacimiento }}</td>
+                    </tr>
+                    {% if aprendiz.ciudad %}
+                    <tr>
+                        <th scope="row">Ciudad</th>
+                        <td>{{ aprendiz.ciudad }}</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a href="/aprendices" class="btn btn-success">Volver a la Lista</a>
+        <a href="/" class="btn btn-success">Volver al Inicio</a>
+    </div>
+
+</div>
+
+{% endblock %}

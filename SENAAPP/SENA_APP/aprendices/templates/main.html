@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}SENA APP - Inicio{% endblock %}
+
+{% block content %}
+<!-- Banner de Bienvenida -->
+<div class="welcome-banner text-center">
+    <h1>Bienvenido a SENA APP</h1>
+    <p class="mb-2">Sistema de Gestión de Aprendices del Servicio Nacional de Aprendizaje</p>
+    <p class="mb-4">Administra y consulta la información de los aprendices de manera eficiente.</p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="/aprendices" class="btn btn-light btn-lg">Ver Aprendices</a>
+        <a href="/aprendices" class="btn btn-outline-light btn-lg">Ver Programas</a>
+    </div>
+</div>
+
+{% endblock %}
