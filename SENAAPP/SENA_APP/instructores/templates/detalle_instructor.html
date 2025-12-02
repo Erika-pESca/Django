@@ -1,0 +1,108 @@
+{% extends "master.html" %}
+{% block title %}Detalle del instructor{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Detalle del Instructor</h1>
+        <a href="/instructores" class="btn btn-success">Volver a la Lista</a>
+    </div>
+    
+    <div class="card mt-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="card-title mb-0">
+                <i class="bi bi-person-badge"></i> {{ instructor.get_full_name }}
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-muted" style="width: 40%;">Documento de Identidad</th>
+                                <td><strong>{{ instructor.documento_identidad }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Tipo de Documento</th>
+                                <td>{{ instructor.tipo_documento }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Nombre</th>
+                                <td><strong>{{ instructor.nombre }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Apellido</th>
+                                <td><strong>{{ instructor.apellido }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Teléfono</th>
+                                <td>{{ instructor.telefono }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Correo</th>
+                                <td>{{ instructor.correo }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Fecha de Nacimiento</th>
+                                <td>{{ instructor.fecha_nacimiento|date:"d/m/Y" }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Ciudad</th>
+                                <td>{{ instructor.ciudad }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-muted" style="width: 40%;">Dirección</th>
+                                <td>{{ instructor.direccion }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Nivel Educativo</th>
+                                <td>{{ instructor.nivel_educativo }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Especialidad</th>
+                                <td><strong>{{ instructor.especialidad }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Años de Experiencia</th>
+                                <td>{{ instructor.anos_experiencia }} años</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Estado</th>
+                                <td>
+                                    {% if instructor.activo %}
+                                        <span class="badge bg-success fs-6">Activo</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary fs-6">Inactivo</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Fecha de Vinculación</th>
+                                <td>{{ instructor.fecha_vinculacion|date:"d/m/Y" }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Fecha de Registro</th>
+                                <td>{{ instructor.fecha_registro|date:"d/m/Y" }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+        <a href="/instructores" class="btn btn-outline-success">Volver a la Lista</a>
+        <a href="/" class="btn btn-success">Volver al Inicio</a>
+    </div>
+
+</div>
+
+{% endblock %}
