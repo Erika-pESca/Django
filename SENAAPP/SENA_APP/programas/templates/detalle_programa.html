@@ -1,0 +1,113 @@
+{% extends "master.html" %}
+{% block title %}Detalle de programas{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Detalle de programas</h1>
+        <a href="/programas" class="btn btn-success">Volver a la Lista</a>
+    </div>
+    
+    <div class="card mt-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="card-title mb-0">
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-muted" style="width: 40%;">Codigo</th>
+                                <td><strong>{{ programa.codigo }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">nombre</th>
+                                <td>{{ programa.nombre }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Nivel de formacion</th>
+                                <td><strong>{{ programa.nivel_formacion }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Modalidad</th>
+                                <td><strong>{{ programa.modalidad }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Duracion meses</th>
+                                <td>{{ programa.duracion_meses }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Duracion horas</th>
+                                <td>{{ programa.duracion_horas }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Descripcion</th>
+                                <td>{{ programa.descripcion }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Competencias</th>
+                                <td>{{ programa.competencias }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tr>
+                                <th scope="row" class="text-muted" style="width: 40%;">Perfil</th>
+                                <td>{{ programa.perfil_egreso }}</td>
+                            </tr> 
+
+                            <tr>
+                                <th scope="row" class="text-muted">Requisitos</th>
+                                <td>{{ programa.requisitos_ingreso }}</td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">Centro Formocion</th>
+                                <td>{{ programa.centro_formacion }}</td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">Regional</th>
+                                <td>{{ programa.regional }}</td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">Estado</th>
+                                <td>{{ programa.estado }}</td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">Fecha Creacion</th>
+                                <td>{{ programa.fecha_creacion }}</td>
+                            </tr>
+                                <tr>
+                                <th scope="row" class="text-muted">Fecha Registro</th>
+                                <td>{{ programa.fecha_registro }}</td>
+                            </tr>
+                                <th scope="row" class="text-muted">Estado</th>
+                                <td>
+                                    {% if programa.activo %}
+                                        <span class="badge bg-success fs-6">Activo</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary fs-6">Inactivo</span>
+                                    {% endif %}
+                                </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+        <a href="/programas" class="btn btn-outline-success">Volver a la Lista</a>
+        <a href="/" class="btn btn-success">Volver al Inicio</a>
+    </div>
+
+</div>
+
+{% endblock %}

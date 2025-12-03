@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="db.sqlite3" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="4194"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="programas_programa" custom_title="0" dock_id="1" table="4,18:mainprogramas_programa"/><dock_state state="000000ff00000000fd0000000100000002000005f4000002aefc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000005f40000011e00ffffff000002750000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="aprendices_aprendiz" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="29"/><column index="2" value="130"/><column index="3" value="132"/><column index="4" value="140"/><column index="5" value="93"/><column index="6" value="187"/><column index="7" value="107"/><column index="8" value="78"/><column index="9" value="140"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="programas_programa" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="29"/><column index="2" value="45"/><column index="3" value="51"/><column index="4" value="98"/><column index="5" value="66"/><column index="6" value="99"/><column index="7" value="95"/><column index="8" value="71"/><column index="9" value="84"/><column index="10" value="82"/><column index="11" value="111"/><column index="12" value="107"/><column index="13" value="54"/><column index="14" value="46"/><column index="15" value="92"/><column index="16" value="89"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">INSERT INTO programas_programa (
+    codigo, 
+    nombre, 
+    nivel_formacion, 
+    modalidad, 
+    duracion_meses, 
+    duracion_horas, 
+    descripcion, 
+    competencias, 
+    perfil_egreso, 
+    requisitos_ingreso, 
+    centro_formacion, 
+    regional, 
+    estado, 
+    fecha_creacion, 
+    fecha_registro
+) VALUES 
+('836102', 'Construcción de Edificaciones', 'TEC', 'PRE', 15, 2600, 'Ejecución de procesos constructivos de obra gris y acabados.', 'Levantar muros, pañetar, interpretar planos.', 'Maestro de obra calificado.', 'Noveno grado aprobado.', 'Centro de Tecnologías para la Construcción', 'Distrito Capital', 'ACT', '2024-01-10', '2025-12-01 10:30:00'),
+
+('635503', 'Cocina', 'TEC', 'PRE', 12, 2200, 'Preparación de alimentos de acuerdo a la solicitud del cliente.', 'Manipular alimentos, preparar menús.', 'Cocinero principal.', 'Noveno grado aprobado.', 'Centro de Hotelería y Turismo', 'Bolívar', 'ACT', '2024-02-15', '2025-12-01 10:35:00'),
+
+('723105', 'Gestión de Empresas Agropecuarias', 'TGL', 'MIX', 24, 3984, 'Administración eficiente de unidades productivas agrícolas.', 'Gestionar recursos, planear siembras.', 'Administrador agropecuario.', 'Bachiller académico.', 'Centro Agroindustrial', 'Meta', 'ACT', '2023-11-20', '2025-12-01 10:40:00'),
+
+('228120', 'Implementación de Infraestructura TIC', 'TEC', 'PRE', 12, 2200, 'Montaje y mantenimiento de redes de datos.', 'Cableado estructurado, configuración de router.', 'Técnico de soporte en redes.', 'Noveno grado aprobado.', 'Centro de Servicios y Gestión Empresarial', 'Antioquia', 'SUS', '2024-03-01', '2025-12-01 10:45:00'),
+
+('134501', 'Apoyo Administrativo en Salud', 'TEC', 'VIR', 18, 2600, 'Atención al usuario y facturación en servicios de salud.', 'Admitir pacientes, facturar servicios.', 'Auxiliar de ingreso y recaudo.', 'Noveno grado aprobado.', 'Centro de Formación de Talento Humano en Salud', 'Distrito Capital', 'ACT', '2024-01-05', '2025-12-01 10:50:00'),
+
+('224228', 'Diagnóstico de Sistemas Electrónicos en Automotores', 'ESP', 'PRE', 6, 880, 'Especialización en la parte electrónica de vehículos modernos.', 'Diagnosticar fallas con scanner.', 'Especialista en autotrónica.', 'Tecnólogo o Profesional en mecánica.', 'Centro Industrial de Mantenimiento', 'Boyacá', 'INA', '2023-09-12', '2025-12-01 10:55:00');</sql><current_tab id="0"/></tab_sql></sqlb_project>
