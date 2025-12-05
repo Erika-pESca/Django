@@ -1,0 +1,73 @@
+{% extends "master.html" %}
+{% block title %}Listado de cursos{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Listado de cursos</h1>
+        <a href="/" class="btn btn-success">Volver al Inicio</a>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="bg-success text-white">
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Programa</th>
+                    <th>Instructor Coordinador</th>
+                    <th>Instructores</th>
+                    <th>Aprendices</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha De Fin</th>
+                    <th>Horario</th>
+                    <th>Aula</th>
+                    <th>Cupos Maximos</th>
+                    <th>Estado</th>
+                    <th>Observaciones</th>
+                    <th>Fecha Registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curso in cursos %}
+                <tr>
+                    <td>{{ curso.codigo }}</td>
+                    <td>{{ curso.nombre }}</td>
+                    <td>{{ curso.programa }}</td>
+                    <td>{{ curso.instructor_coordinador }}</td>
+                    <td>
+                        {% for instructor in curso.instructores.all %}
+                            {{ instructor.id }} - {{ instructor.nombre }} {{ instructor.apellido }}<br>
+                        {% empty %}
+                        <span class="text-muted">Sin instructores</span>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for ap in curso.aprendices.all %}
+                            {{ ap.id }} - {{ ap.nombre }} {{ ap.apellido }}<br>
+                        {% empty %}
+                        <span class="text-muted">Sin aprendices</span>
+                        {% endfor %}
+                    </td>
+                    <td>{{ curso.fecha_inicio }}</td>
+                    <td>{{ curso.fecha_fin }}</td>
+                    <td>{{ curso.horario }}</td>
+                    <td>{{ curso.aula }}</td>
+                    <td>{{ curso.cupos_maximos }}</td>
+                    <td>{{ curso.estado }}</td>
+                    <td>{{ curso.observaciones }}</td>
+                    <td>{{ curso.fecha_registro }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="14" class="text-center text-muted py-4">
+                        No hay cursos registrados.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "master.html" %}
+{% block title %}Detalle de cursos{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Detalle de cursos</h1>
+        <a href="/cursos" class="btn btn-success">Volver a la Lista</a>
+    </div>
+    
+    <div class="card mt-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="card-title mb-0">
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-muted" style="width: 40%;">Codigo</th>
+                                <td><strong>{{ curso.codigo }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">nombre</th>
+                                <td>{{ curso.nombre }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Programa</th>
+                                <td><strong>{{ curso.programa }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Instructor Coordinador</th>
+                                <td><strong>{{ curso.instructor_coordinador }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Instructores</th>
+                                <td>{{ curso.instructores }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Aprendices</th>
+                                <td>{{ curso.aprendices }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Fecha De Inicio</th>
+                                <td>{{ curso.fecha_inicio }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-muted">Fecha Fin</th>
+                                <td>{{ curso.fecha_fin }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-borderless">
+                        <tr>
+                                <th scope="row" class="text-muted" style="width: 40%;">Horario</th>
+                                <td>{{ curso.horario }}</td>
+                            </tr> 
+
+                            <tr>
+                                <th scope="row" class="text-muted">Aula</th>
+                                <td>{{ curso.aula }}</td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">Cupos Maximos</th>
+                                <td>{{ curso.cupos_maximos }}</td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">Estado</th>
+                                <td>{{ curso.estado }}</td>
+                                <th scope="row" class="text-muted">Estado</th>
+                                <td>
+                                    {% if curso.activo %}
+                                        <span class="badge bg-success fs-6">Activo</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary fs-6">Inactivo</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">observaciones</th>
+                                <td>{{ curso.observaciones }}</td>
+                            </tr>
+
+                                <tr>
+                                <th scope="row" class="text-muted">Fecha Registro</th>
+                                <td>{{ curso.fecha_registro }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+        <a href="/cursos" class="btn btn-outline-success">Volver a la Lista</a>
+        <a href="/" class="btn btn-success">Volver al Inicio</a>
+    </div>
+
+</div>
+
+{% endblock %}
