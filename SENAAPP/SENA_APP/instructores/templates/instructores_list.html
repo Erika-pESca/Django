@@ -21,6 +21,8 @@
                     <th>Especialidad</th>
                     <th>Activo</th>
                     <th>Acciones</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +35,7 @@
                     <td>{{ instructor.correo }}</td>
                     <td>{{ instructor.nivel_educativo }}</td>
                     <td>{{ instructor.especialidad }}</td>
+                    
                     <td>
                         {% if instructor.activo %}
                             <span class="badge bg-success">Sí</span>
@@ -41,7 +44,13 @@
                         {% endif %}
                     </td>
                     <td>
-                        <a href="{% url 'detalle_instructor' instructor.id %}" class="btn btn-sm btn-success">Ver Detalle</a>
+                        <a href="{% url 'instructores:detalle_instructor' instructor.id %}" class="btn btn-sm btn-success">Ver Detalle</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'instructores:editar_instructor' instructor.id %}" class="btn btn-sm btn-success">Editar</a> 
+                    </td>
+                    <td>
+                        <a href="{% url 'instructores:eliminar_instructor' instructor.id %}" class="btn btn-sm btn-success">Eliminar</a>     
                     </td>
                 </tr>
                 {% empty %}

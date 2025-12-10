@@ -1,0 +1,101 @@
+{% extends 'master.html' %}
+
+{% block title %}Eliminar Programa - SENA APP{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow-lg border-danger">
+            <div class="card-header bg-danger text-white py-3">
+                <h3 class="card-title mb-0">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Confirmar Eliminación
+                </h3>
+            </div>
+            <div class="card-body p-4">
+                <div class="alert alert-warning border-warning mb-4">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-exclamation-triangle-fill me-2 fs-4"></i>
+                        <div>
+                            <strong>¡Atención!</strong> Esta acción no se puede deshacer.
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="lead text-center mb-4">¿Está seguro que desea eliminar el siguiente programa?</p>
+                
+                <div class="card mb-4 border-secondary">
+                    <div class="card-body">
+                            <h5 class="card-title mb-3" style="color: #20c997;">
+                            <i class="bi bi-clipboard-data me-2"></i>{{ programa.codigo }} - {{ programa.nombre }}
+                        </h5>
+                        <hr>
+                        <div class="row g-2">
+                            <div class="col-12">
+                                <strong><i class="bi bi-code-square me-2 text-muted"></i>Código:</strong>
+                                <span class="ms-2">{{ programa.codigo }}</span>
+                            </div>
+                            <div class="col-12">
+                                <strong><i class="bi bi-book me-2 text-muted"></i>Nombre:</strong>
+                                <span class="ms-2">{{ programa.nombre }}</span>
+                            </div>
+                            {% if programa.modalidad %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-diagram-3 me-2 text-muted"></i>Modalidad:</strong>
+                                <span class="ms-2">{{ programa.get_modalidad_display|default:programa.modalidad }}</span>
+                            </div>
+                            {% endif %}
+                            {% if programa.nivel_formacion %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-bar-chart me-2 text-muted"></i>Nivel de Formación:</strong>
+                                <span class="ms-2">{{ programa.get_nivel_formacion_display|default:programa.nivel_formacion }}</span>
+                            </div>
+                            {% endif %}
+                            {% if programa.duracion_meses %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-calendar-range me-2 text-muted"></i>Duración:</strong>
+                                <span class="ms-2">{{ programa.duracion_meses }} meses</span>
+                            </div>
+                            {% endif %}
+                            {% if programa.descripcion %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-file-text me-2 text-muted"></i>Descripción:</strong>
+                                <p class="ms-4 mb-0">{{ programa.descripcion|truncatewords:20 }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'programas:programas' %}" class="btn btn-secondary btn-lg">
+                            <i class="bi bi-x-circle me-2"></i>Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-danger btn-lg">
+                            <i class="bi bi-trash-fill me-2"></i>Sí, Eliminar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+    }
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+    }
+    .btn {
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 500;
+    }
+    .alert {
+        border-radius: 10px;
+    }
+</style>
+{% endblock %}

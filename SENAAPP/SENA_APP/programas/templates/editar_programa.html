@@ -1,0 +1,171 @@
+{% extends "master.html" %}
+{% load bootstrap5 %}
+
+{% block title %}Editar Programa - SENA APP{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-10 col-md-12">
+        <div class="card shadow-lg border-0">
+            <div class="card-header text-white py-3" style="background: linear-gradient(135deg, #20c997 0%, #198754 100%);">
+                <h3 class="card-title mb-0">
+                    <i class="bi bi-pencil-square me-2"></i>Editar Programa
+                </h3>
+            </div>
+            <div class="card-body p-4">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="{{ form.codigo.id_for_label }}" class="form-label fw-bold">
+                                {{ form.codigo.label }}
+                            </label>
+                            {{ form.codigo }}
+                            {% if form.codigo.errors %}
+                                <div class="text-danger small mt-1">{{ form.codigo.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.nombre.id_for_label }}" class="form-label fw-bold">
+                                {{ form.nombre.label }}
+                            </label>
+                            {{ form.nombre }}
+                            {% if form.nombre.errors %}
+                                <div class="text-danger small mt-1">{{ form.nombre.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.modalidad.id_for_label }}" class="form-label fw-bold">
+                                {{ form.modalidad.label }}
+                            </label>
+                            {{ form.modalidad }}
+                            {% if form.modalidad.errors %}
+                                <div class="text-danger small mt-1">{{ form.modalidad.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.nivel_formacion.id_for_label }}" class="form-label fw-bold">
+                                {{ form.nivel_formacion.label }}
+                            </label>
+                            {{ form.nivel_formacion }}
+                            {% if form.nivel_formacion.errors %}
+                                <div class="text-danger small mt-1">{{ form.nivel_formacion.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.duracion_meses.id_for_label }}" class="form-label fw-bold">
+                                {{ form.duracion_meses.label }}
+                            </label>
+                            {{ form.duracion_meses }}
+                            {% if form.duracion_meses.errors %}
+                                <div class="text-danger small mt-1">{{ form.duracion_meses.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.estado.id_for_label }}" class="form-label fw-bold">
+                                {{ form.estado.label }}
+                            </label>
+                            {{ form.estado }}
+                            {% if form.estado.errors %}
+                                <div class="text-danger small mt-1">{{ form.estado.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12">
+                            <label for="{{ form.centro_formacion.id_for_label }}" class="form-label fw-bold">
+                                {{ form.centro_formacion.label }}
+                            </label>
+                            {{ form.centro_formacion }}
+                            {% if form.centro_formacion.errors %}
+                                <div class="text-danger small mt-1">{{ form.centro_formacion.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12">
+                            <label for="{{ form.descripcion.id_for_label }}" class="form-label fw-bold">
+                                {{ form.descripcion.label }}
+                            </label>
+                            {{ form.descripcion }}
+                            {% if form.descripcion.errors %}
+                                <div class="text-danger small mt-1">{{ form.descripcion.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12">
+                            <label for="{{ form.competencias.id_for_label }}" class="form-label fw-bold">
+                                {{ form.competencias.label }}
+                            </label>
+                            {{ form.competencias }}
+                            {% if form.competencias.errors %}
+                                <div class="text-danger small mt-1">{{ form.competencias.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12">
+                            <label for="{{ form.requisitos_ingreso.id_for_label }}" class="form-label fw-bold">
+                                {{ form.requisitos_ingreso.label }}
+                            </label>
+                            {{ form.requisitos_ingreso }}
+                            {% if form.requisitos_ingreso.errors %}
+                                <div class="text-danger small mt-1">{{ form.requisitos_ingreso.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4 pt-3 border-top">
+                        <a href="{% url 'programas:programas' %}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Cancelar
+                        </a>
+                        <button type="submit" class="btn text-white" style="background: linear-gradient(135deg, #20c997 0%, #198754 100%); border: none;">
+                            <i class="bi bi-check-circle me-2"></i>Actualizar Programa
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+    }
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+    }
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 0.6rem 0.75rem;
+    }
+    .form-control:focus, .form-select:focus {
+        border-color: #20c997;
+        box-shadow: 0 0 0 0.2rem rgba(32, 201, 151, 0.25);
+    }
+    .btn {
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 500;
+    }
+</style>
+{% endblock %}

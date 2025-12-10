@@ -25,9 +25,9 @@ def main(request):
 
 
 def aprendices_list(request):
-    data = Aprendiz.objects.all().values('id', 'documento_identidad', 'nombre', 'apellido', 'correo_electronico', 'telefono', 'programa_formacion', 'fecha_nacimiento')
+    aprendices = Aprendiz.objects.all().values('id', 'documento_identidad', 'nombre', 'apellido', 'correo_electronico', 'telefono', 'programa_formacion', 'fecha_nacimiento')
     context = {
-        "aprendices": data,
+        "aprendices": aprendices,
     }
 
     template = loader.get_template('aprendices_list.html')
@@ -51,7 +51,7 @@ class AprendizCreateView(generic.CreateView):
     model = Aprendiz
     form_class = AprendizForm
     template_name = 'agregar_aprendiz.html'
-    success_url = reverse_lazy('aprendices:aprendices_list  ')
+    success_url = reverse_lazy('aprendices:aprendices')
     
     def form_valid(self, form):
         """Mostrar mensaje de éxito al crear el aprendiz"""
@@ -101,7 +101,7 @@ class AprendizDeleteView(generic.DeleteView):
     """Vista para eliminar un aprendiz"""
     model = Aprendiz
     template_name = 'eliminar_aprendiz.html'
-    success_url = reverse_lazy('aprendices:lista_aprendices')
+    success_url = reverse_lazy('aprendices:aprendices_list')
     pk_url_kwarg = 'aprendiz_id'
     
     def delete(self, request, *args, **kwargs):

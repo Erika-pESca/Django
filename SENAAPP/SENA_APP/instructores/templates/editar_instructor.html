@@ -1,15 +1,15 @@
 {% extends "master.html" %}
 {% load bootstrap5 %}
 
-{% block title %}Editar Aprendiz - SENA APP{% endblock %}
+{% block title %}Editar Instructor - SENA APP{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center mt-4">
-    <div class="col-lg-8 col-md-10">
+    <div class="col-lg-10 col-md-12">
         <div class="card shadow-lg border-0">
             <div class="card-header text-white py-3" style="background: linear-gradient(135deg, #20c997 0%, #198754 100%);">
                 <h3 class="card-title mb-0">
-                    <i class="bi bi-pencil-square me-2"></i>Editar Aprendiz
+                    <i class="bi bi-pencil-square me-2"></i>Editar Instructor
                 </h3>
             </div>
             <div class="card-body p-4">
@@ -31,8 +31,19 @@
                         </div>
                     {% endif %}
 
-                    <div class="row g-3">
-                        <div class="col-md-6">
+                    <h5 class="text-muted mb-3 mt-2"><i class="bi bi-info-circle me-2"></i>Información Personal</h5>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-3">
+                            <label for="{{ form.tipo_documento.id_for_label }}" class="form-label fw-bold">
+                                {{ form.tipo_documento.label }}
+                            </label>
+                            {{ form.tipo_documento }}
+                            {% if form.tipo_documento.errors %}
+                                <div class="text-danger small mt-1">{{ form.tipo_documento.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-5">
                             <label for="{{ form.documento_identidad.id_for_label }}" class="form-label fw-bold">
                                 {{ form.documento_identidad.label }}
                             </label>
@@ -42,7 +53,7 @@
                             {% endif %}
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="{{ form.fecha_nacimiento.id_for_label }}" class="form-label fw-bold">
                                 {{ form.fecha_nacimiento.label }}
                             </label>
@@ -83,16 +94,16 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="{{ form.correo_electronico.id_for_label }}" class="form-label fw-bold">
-                                {{ form.correo_electronico.label }}
+                            <label for="{{ form.correo.id_for_label }}" class="form-label fw-bold">
+                                {{ form.correo.label }}
                             </label>
-                            {{ form.correo_electronico }}
-                            {% if form.correo_electronico.errors %}
-                                <div class="text-danger small mt-1">{{ form.correo_electronico.errors }}</div>
+                            {{ form.correo }}
+                            {% if form.correo.errors %}
+                                <div class="text-danger small mt-1">{{ form.correo.errors }}</div>
                             {% endif %}
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <label for="{{ form.ciudad.id_for_label }}" class="form-label fw-bold">
                                 {{ form.ciudad.label }}
                             </label>
@@ -101,14 +112,81 @@
                                 <div class="text-danger small mt-1">{{ form.ciudad.errors }}</div>
                             {% endif %}
                         </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.direccion.id_for_label }}" class="form-label fw-bold">
+                                {{ form.direccion.label }}
+                            </label>
+                            {{ form.direccion }}
+                            {% if form.direccion.errors %}
+                                <div class="text-danger small mt-1">{{ form.direccion.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h5 class="text-muted mb-3"><i class="bi bi-mortarboard me-2"></i>Información Profesional</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="{{ form.nivel_educativo.id_for_label }}" class="form-label fw-bold">
+                                {{ form.nivel_educativo.label }}
+                            </label>
+                            {{ form.nivel_educativo }}
+                            {% if form.nivel_educativo.errors %}
+                                <div class="text-danger small mt-1">{{ form.nivel_educativo.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.especialidad.id_for_label }}" class="form-label fw-bold">
+                                {{ form.especialidad.label }}
+                            </label>
+                            {{ form.especialidad }}
+                            {% if form.especialidad.errors %}
+                                <div class="text-danger small mt-1">{{ form.especialidad.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="{{ form.anos_experiencia.id_for_label }}" class="form-label fw-bold">
+                                {{ form.anos_experiencia.label }}
+                            </label>
+                            {{ form.anos_experiencia }}
+                            {% if form.anos_experiencia.errors %}
+                                <div class="text-danger small mt-1">{{ form.anos_experiencia.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="{{ form.fecha_vinculacion.id_for_label }}" class="form-label fw-bold">
+                                {{ form.fecha_vinculacion.label }}
+                            </label>
+                            {{ form.fecha_vinculacion }}
+                            {% if form.fecha_vinculacion.errors %}
+                                <div class="text-danger small mt-1">{{ form.fecha_vinculacion.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-4 d-flex align-items-end">
+                            <div class="form-check form-switch">
+                                {{ form.activo }}
+                                <label class="form-check-label fw-bold" for="{{ form.activo.id_for_label }}">
+                                    {{ form.activo.label }}
+                                </label>
+                                {% if form.activo.errors %}
+                                    <div class="text-danger small mt-1">{{ form.activo.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
 
                     <div class="d-flex justify-content-between mt-4 pt-3 border-top">
-                        <a href="{% url 'aprendices:aprendices' %}" class="btn btn-secondary">
+                        <a href="{% url 'instructores:instructores' %}" class="btn btn-secondary">
                             <i class="bi bi-arrow-left me-2"></i>Cancelar
                         </a>
                         <button type="submit" class="btn text-white" style="background: linear-gradient(135deg, #20c997 0%, #198754 100%); border: none;">
-                            <i class="bi bi-check-circle me-2"></i>Actualizar Aprendiz
+                            <i class="bi bi-check-circle me-2"></i>Actualizar Instructor
                         </button>
                     </div>
                 </form>
@@ -136,6 +214,11 @@
         border-radius: 8px;
         padding: 0.6rem 1.5rem;
         font-weight: 500;
+    }
+    .form-check-input {
+        width: 3em;
+        height: 1.5em;
+        margin-top: 0.5em;
     }
 </style>
 {% endblock %}

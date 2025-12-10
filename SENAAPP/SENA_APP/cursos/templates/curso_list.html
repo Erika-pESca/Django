@@ -14,7 +14,7 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Nombre</th>
-                    <th>Programa</th>
+                    <th>curso</th>
                     <th>Instructor Coordinador</th>
                     <th>Instructores</th>
                     <th>Aprendices</th>
@@ -26,6 +26,9 @@
                     <th>Estado</th>
                     <th>Observaciones</th>
                     <th>Fecha Registro</th>
+                    <th>Detalles</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +36,7 @@
                 <tr>
                     <td>{{ curso.codigo }}</td>
                     <td>{{ curso.nombre }}</td>
-                    <td>{{ curso.programa }}</td>
+                    <td>{{ curso.curso }}</td>
                     <td>{{ curso.instructor_coordinador }}</td>
                     <td>
                         {% for instructor in curso.instructores.all %}
@@ -57,6 +60,16 @@
                     <td>{{ curso.estado }}</td>
                     <td>{{ curso.observaciones }}</td>
                     <td>{{ curso.fecha_registro }}</td>
+
+                    <td>
+                        <a href="{% url 'cursos:detalle_curso' curso.id %}" class="btn btn-sm btn-success">Ver Detalle</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'cursos:editar_curso' curso.id %}" class="btn btn-sm btn-success">Editar</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'cursos:eliminar_curso' curso.id %}" class="btn btn-sm btn-success">Eliminar</a>   
+                    </td>
                 </tr>
                 {% empty %}
                 <tr>

@@ -1,0 +1,97 @@
+{% extends "master.html" %}
+
+{% block title %}Eliminar Instructor - SENA APP{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-6 col-md-8">
+        <div class="card shadow-lg border-danger">
+            <div class="card-header bg-danger text-white py-3">
+                <h3 class="card-title mb-0">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Confirmar Eliminación
+                </h3>
+            </div>
+            <div class="card-body p-4">
+                <div class="alert alert-warning border-warning mb-4">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-exclamation-triangle-fill me-2 fs-4"></i>
+                        <div>
+                            <strong>¡Atención!</strong> Esta acción no se puede deshacer.
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="lead text-center mb-4">¿Está seguro que desea eliminar al siguiente instructor?</p>
+                
+                <div class="card mb-4 border-secondary">
+                    <div class="card-body">
+                            <h5 class="card-title mb-3" style="color: #20c997;">
+                            <i class="bi bi-person-badge me-2"></i>{{ instructor.get_full_name }}
+                        </h5>
+                        <hr>
+                        <div class="row g-2">
+                            <div class="col-12">
+                                <strong><i class="bi bi-card-text me-2 text-muted"></i>Documento:</strong>
+                                <span class="ms-2">{{ instructor.documento_identidad }}</span>
+                            </div>
+                            {% if instructor.correo %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-envelope me-2 text-muted"></i>Correo:</strong>
+                                <span class="ms-2">{{ instructor.correo }}</span>
+                            </div>
+                            {% endif %}
+                            {% if instructor.telefono %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-telephone me-2 text-muted"></i>Teléfono:</strong>
+                                <span class="ms-2">{{ instructor.telefono }}</span>
+                            </div>
+                            {% endif %}
+                            {% if instructor.especialidad %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-star me-2 text-muted"></i>Especialidad:</strong>
+                                <span class="ms-2">{{ instructor.especialidad }}</span>
+                            </div>
+                            {% endif %}
+                            {% if instructor.nivel_educativo %}
+                            <div class="col-12">
+                                <strong><i class="bi bi-mortarboard me-2 text-muted"></i>Nivel Educativo:</strong>
+                                <span class="ms-2">{{ instructor.get_nivel_educativo_display }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'instructores:instructores' %}" class="btn btn-secondary btn-lg">
+                            <i class="bi bi-x-circle me-2"></i>Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-danger btn-lg">
+                            <i class="bi bi-trash-fill me-2"></i>Sí, Eliminar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+    }
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+    }
+    .btn {
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 500;
+    }
+    .alert {
+        border-radius: 10px;
+    }
+</style>
+{% endblock %}
